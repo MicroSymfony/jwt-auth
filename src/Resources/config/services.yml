@@ -4,18 +4,18 @@ services:
     symfony.micro_services.jwt.signer:
         class: MicroSymfony\JWT\Signer
         arguments:
-            - %symfony.micro_services.private_key%
-            - %symfony.micro_services.passphrase%
-            - %symfony.micro_services.timeout%
-            - %symfony.micro_services.auth.allowed_services%
-            - %symfony.micro_services.auth.allowed_ip_ranges%
+            - '%symfony.micro_services.private_key%'
+            - '%symfony.micro_services.passphrase%'
+            - '%symfony.micro_services.timeout%'
+            - '%symfony.micro_services.auth.allowed_services%'
+            - '%symfony.micro_services.auth.allowed_ip_ranges%'
         calls:
             - [setIssuer, ['%symfony.micro_services.auth.issuer%']]
 
     symfony.micro_services.jwt.verifier:
         class: MicroSymfony\JWT\Verifier
         arguments:
-            - %symfony.micro_services.public_key%
+            - '%symfony.micro_services.public_key%'
 
     symfony.micro_services.jwt.token_manager:
         class: MicroSymfony\JWT\TokenManager
