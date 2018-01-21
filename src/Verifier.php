@@ -23,6 +23,8 @@ class Verifier
         if ($this->getUid($service) !== $token->getClaim('uid') || !$this->verifyToken($token)) {
             throw new VerificationException();
         }
+
+        return true;
     }
 
     public function verifyToken(Token $token): bool
