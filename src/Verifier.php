@@ -10,6 +10,8 @@ use MicroSymfony\JWT\Exceptions\VerificationException;
 
 class Verifier
 {
+    use KeyUtilsTrait;
+
     private $publicKey;
 
     public function __construct($publicKey)
@@ -30,7 +32,8 @@ class Verifier
     public function verifyToken(Token $token): bool
     {
         $signer = new Sha256();
-        $key = new Key($this->publicKey);
+        $fullKey = $this->enrichKeyName($this->publicKey);
+        $key = new Key($fullKey);
 
         $result = $token->verify($signer, $key);
 

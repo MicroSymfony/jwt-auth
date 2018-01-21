@@ -9,6 +9,8 @@ use MicroSymfony\JWT\Exceptions\UnauthorizedException;
 
 class Signer
 {
+    use KeyUtilsTrait;
+
     private $allowedServices = [];
     private $allowedIpRanges = [];
     private $passphrase = '';
@@ -28,7 +30,9 @@ class Signer
     public function sign(string $service, string $ip): string
     {
         $signer = new Sha256();
-        $key = new Key($this->privateKey, $this->passphrase);
+        // PHP seems to have an issue when there are no file:// in beginning
+        $fullKey = $this->enrichKeyName($this->privateKey);
+        $key = new Key($fullKey, $this->passphrase);
 
         $this->verifyService($service, $ip);
 
