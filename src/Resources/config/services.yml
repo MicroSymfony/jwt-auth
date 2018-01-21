@@ -16,3 +16,8 @@ services:
         class: MicroSymfony\JWT\Verifier
         arguments:
             - %symfony.micro_services.public_key%
+
+    symfony.micro_services.jwt.token_manager:
+        class: MicroSymfony\JWT\TokenManager
+        calls:
+            - [setConnection, ['@symfony.micro_services.connection']]

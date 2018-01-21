@@ -39,4 +39,12 @@ class TokenManager
 
         return $tokenData['token'];
     }
+
+    /**
+     * @param ConnectionAdapterInterface $connection
+     */
+    public function setConnection(ConnectionAdapterInterface $connection): void
+    {
+        $this->connection = $connection;
+    }
 }
