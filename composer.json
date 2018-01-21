@@ -1,0 +1,17 @@
+{
+    "name": "microsymfony/jwt-auth",
+    "description": "A bundle for symfony designated to ease inter-service authentication using Json Web Tokens",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrius Petrauskis",
+            "email": "andrius@petrauskis.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MicroSymfony\\JWT\\": "src/"
+        }
+    }
+}
