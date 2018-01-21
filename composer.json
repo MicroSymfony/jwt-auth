@@ -15,6 +15,7 @@
         }
     },
     "require": {
-        "symfony/http-kernel": "^4.0"
+        "symfony/http-kernel": "^4.0",
+        "lcobucci/jwt": "^3.2"
     }
 }
