@@ -21,3 +21,7 @@ services:
         class: MicroSymfony\JWT\TokenManager
         calls:
             - [setConnection, ['@symfony.micro_services.connection']]
+
+    MicroSymfony\JWT\Verifier: '@symfony.micro_services.jwt.verifier'
+    MicroSymfony\JWT\TokenManager: '@symfony.micro_services.jwt.token_manager'
+    MicroSymfony\JWT\Signer: '@symfony.micro_services.jwt.signer'
