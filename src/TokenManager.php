@@ -33,7 +33,7 @@ class TokenManager
 
     private function requestToken()
     {
-        $response = $this->connection->get('auth');
+        $response = $this->connection->get('auth/create');
         $tokenData = json_decode($response, true);
         $this->checkToken($tokenData);
         $this->cacheToken($tokenData['token']);
